@@ -1,6 +1,4 @@
 import BackImage from '../images/back.png';
-
-
 class Card {
     constructor(id, name, image, container) {
         this.id = id;

@@ -6,6 +6,8 @@ import Peer3 from '../images/peer3.jpg';
 import Peer4 from '../images/peer4.png';
 
 class Game {
+    compteur = 0;
+
     #gameContainer = document.querySelector('[data-game]');
 
     #cards = [
@@ -68,6 +70,15 @@ class Game {
         
         this.initCards();
         this.initEvents();
+        this.initCompteur();
+    }
+    
+    getCompteur() {
+        return this.compteur;
+    }
+
+    setCompteur() {
+        this.compteur++;
     }
 
     initCards() {
@@ -98,6 +109,17 @@ class Game {
         })
     }
 
+    initCompteur() {
+        const currentCompteur = this.getCompteur();
+        document.querySelector('[data-compteur]').innerHTML = `${currentCompteur}`;
+
+        document.addEventListener('compteur', () => {
+            this.setCompteur();
+
+            document.querySelector('[data-compteur]').innerHTML = this.getCompteur();
+        })
+    }
+
     checkCards() {
         const activeCards = document.querySelectorAll('.card--active');
 
@@ -111,6 +133,9 @@ class Game {
                     card.classList.remove('card--active')
                 });
             }
+
+            const event = new Event('compteur');
+            document.dispatchEvent(event);
         }
 
         if (activeCards.length > 2) {
@@ -119,6 +144,7 @@ class Game {
             });
         }
 
+        console.log(this.compteur);
         this.checkWin();
     }
 
