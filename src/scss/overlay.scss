@@ -1,0 +1,36 @@
+body {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vh;
+    height: 100vh;
+    display: none !important;
+    transition: display ease 0.2s;
+
+    h1 {
+        color: white;
+    }
+
+    img {
+        max-width: 450px;
+    }
+
+    &--visible {
+        display: flex !important;
+    }
+
+    &--win {
+        background-color: gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+        align-items: center;
+    }
+}

@@ -7,9 +7,18 @@
   </head>
   <body>
     <div class="container py-4 px-3 mx-auto">
-      <h1 class="text-center">Le super Meme ory</h1>
+      <div data-game class="game row">
+      </div>
 
-      <div data-game class="game row cols cols-4"></div>
+      <div data-win-overlay class="overlay overlay--win">
+        <h1>You win !! Congratulations</h1>
+
+        <img src="https://www.memeatlas.com/images/wojaks/wojak-happy-clouds.jpg" class="win-image" />
+
+        <div>
+          <button data-restart type="button" class="btn btn-primary">Restart a new game</button>
+        </div>
+      </div>
     </div>
     <script src="./main.js"></script>
   </body>

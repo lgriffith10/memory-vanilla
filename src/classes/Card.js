@@ -2,16 +2,18 @@ import BackImage from '../images/back.png';
 
 
 class Card {
-    constructor(id, name, image) {
+    constructor(id, name, image, container) {
         this.id = id;
         this.name = name;
         this.image = image;
+        this.container = container;
 
         this.init();
     }
 
     init() {
         this.initElement();
+        this.initEvents();
     }
 
     initElement() {
@@ -46,6 +48,15 @@ class Card {
         });
 
         return element;
+    }
+
+    initEvents() {
+        this.container.addEventListener('click', () => {
+            this.container.querySelector('.card').classList.add('card--active');
+
+            const event = new Event('cardClicked');
+            document.dispatchEvent(event);
+        });
     }
 }
 
